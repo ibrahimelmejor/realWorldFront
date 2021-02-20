@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Article, ArticlesService } from '../core';
 import {Observable} from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import {  TagsService } from '../core';
 
 @Component({
   selector: 'app-editor-page',
@@ -23,7 +24,8 @@ export class EditorComponent implements OnInit {
     private articlesService: ArticlesService,
     private route: ActivatedRoute,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private tagsService: TagsService,
   ) {
     // use the FormBuilder to create a form group
     this.articleForm = this.fb.group({
@@ -33,10 +35,12 @@ export class EditorComponent implements OnInit {
     });
 
     // Initialized tagList as empty array
-    this.article.tagList = ['Algorithms', 'Programming', 'Mathematics', 'Physics'];
+    //this.article.tagList = ['Algorithms', 'Programming', 'Mathematics', 'Physics'];
     // Optional: subscribe to value changes on the form
     // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
   }
+  tags: Array<string> = [];
+  tagsLoaded = false;
 
   ngOnInit() {
     // If there's an article prefetched, load it
@@ -46,16 +50,36 @@ export class EditorComponent implements OnInit {
         this.articleForm.patchValue(data.article);
       }
     });
+  
+ 
+      this.tagsService.getAll()
+      .subscribe(tags => {
+        for(var tag of tags)
+        {
+          tag = tag.replace(/[\u200c-\u200D\uFEFF]/g, '');
+          if(tag !== "")
+          {
+            console.log(tag);
+            this.tags.push(tag); 
+          }
+        }
+        this.tagsLoaded = true;
+        console.log(this.tags);
+      });
+ 
+     setTimeout(()=>
+      {  
     this.filteredOptions = this.tagField.valueChanges
-      .pipe(
-        startWith(''),
-        map(value => this._filter(value))
-      );
+    .pipe(
+      startWith(''),
+      map(value => this._filter(value))
+    );
+  }, 1800);
   }
   private _filter(value: string): string[] {
+    console.log("Inside _filter : " + this.tags );
     const filterValue = value.toLowerCase();
-
-    return this.article.tagList.filter(tag => tag.toLowerCase().includes(filterValue));
+    return this.tags.filter(tag => tag.toLowerCase().includes(filterValue));
   }
   
   addTag() {

@@ -53,8 +53,11 @@
                 [matAutocomplete]="auto"/>
                 <div id = "idAutoComplete">
                   <mat-autocomplete #auto="matAutocomplete">
-                    <mat-option *ngFor="let tag of filteredOptions | async" [value]="tag">
-                      {{tag}}
+                    <mat-option  *ngFor="let tag of filteredOptions | async" [value]="tag">
+                      <div>
+                        {{tag}}
+                      </div>
+                      
                     </mat-option>
                   </mat-autocomplete>
               </div>
@@ -66,14 +69,11 @@
                 </span>
               </div>-->
             </fieldset>
-
             <button class="btn btn-lg pull-xs-right btn-primary" type="button" (click)="submitForm()">
               Publish Article
             </button>
-
           </fieldset>
         </form>
-
       </div>
     </div>
   </div>
