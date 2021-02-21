@@ -39,7 +39,15 @@ export class HomeComponent implements OnInit {
 
     this.tagsService.getAll()
     .subscribe(tags => {
-      this.tags = tags;
+      for(var tag of tags)
+        {
+          tag = tag.replace(/[\u200c-\u200D\uFEFF]/g, '');
+          if(tag !== "")
+          {
+            console.log(tag);
+            this.tags.push(tag); 
+          }
+        }
       this.tagsLoaded = true;
     });
   }
