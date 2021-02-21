@@ -7,11 +7,15 @@ import { ArticleResolver } from './article-resolver.service';
 import { MarkdownPipe } from './markdown.pipe';
 import { SharedModule } from '../shared';
 import { ArticleRoutingModule } from './article-routing.module';
+import {RatingModule} from 'primeng/rating';
+import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   imports: [
     SharedModule,
-    ArticleRoutingModule
+    ArticleRoutingModule,
+    RatingModule,
+    NgbModule
   ],
   declarations: [
     ArticleComponent,

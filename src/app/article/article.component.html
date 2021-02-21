@@ -83,6 +83,8 @@
             {{ article.favorited ? 'Unfavorite' : 'Favorite' }} Article <span class="counter">({{ article.favoritesCount }})</span>
           </app-favorite-button>
         </span>
+        <ngb-rating [max]=5 style = "color : gold" [(rate)]="currentRate">
+        </ngb-rating>
 
       </app-article-meta>
     </div>

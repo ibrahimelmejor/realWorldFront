@@ -7,7 +7,7 @@ import { HomeModule } from './home/home.module';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-
+import {RatingModule} from 'primeng/rating';
 import {
   FooterComponent,
   HeaderComponent,
@@ -15,6 +15,7 @@ import {
 } from './shared';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent],
@@ -27,7 +28,9 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     MatFormFieldModule,
     MatInputModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    RatingModule,
+    NgbModule
 
   ],
   providers: [],

@@ -9,6 +9,9 @@ import { Article } from '../../core';
 export class ArticlePreviewComponent {
   @Input() article: Article;
 
+  val1: number;
+
+
   onToggleFavorite(favorited: boolean) {
     this.article['favorited'] = favorited;
 

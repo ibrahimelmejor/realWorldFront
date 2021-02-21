@@ -50,6 +50,7 @@
                 placeholder="Enter tags"
                 [formControl]="tagField"
                 (keyup.enter)="addTag()" 
+                formControlName="tagList"
                 [matAutocomplete]="auto"/>
                 <div id = "idAutoComplete">
                   <mat-autocomplete #auto="matAutocomplete">

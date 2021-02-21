@@ -31,11 +31,12 @@ export class EditorComponent implements OnInit {
     this.articleForm = this.fb.group({
       title: '',
       description: '',
-      body: ''
+      body: '',
+      tagList: []
     });
 
     // Initialized tagList as empty array
-    //this.article.tagList = ['Algorithms', 'Programming', 'Mathematics', 'Physics'];
+    this.article.tagList = [];
     // Optional: subscribe to value changes on the form
     // this.articleForm.valueChanges.subscribe(value => this.updateArticle(value));
   }
@@ -99,10 +100,13 @@ export class EditorComponent implements OnInit {
 
   submitForm() {
     this.isSubmitting = true;
-
+    
     // update the model
+this.articleForm.patchValue({
+  tagList: [this.tagField.value]
+  
+});
     this.updateArticle(this.articleForm.value);
-
     // post the changes
     this.articlesService.save(this.article).subscribe(
       article => this.router.navigateByUrl('/article/' + article.slug),

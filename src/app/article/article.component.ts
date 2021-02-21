@@ -24,7 +24,7 @@ export class ArticleComponent implements OnInit {
   commentFormErrors = {};
   isSubmitting = false;
   isDeleting = false;
-
+  val1: number;
   constructor(
     private route: ActivatedRoute,
     private articlesService: ArticlesService,
