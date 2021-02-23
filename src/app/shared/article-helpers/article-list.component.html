@@ -1,49 +1,55 @@
+<br />
+<div class="row">
+  <div class="col-md-3">
+    <select [(ngModel)]="selectedValue" class="custom-select my-select">
+      <option *ngFor="let property of properties" value="{{ property }}">
+        {{ property }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-5">
+    <input
+      id="float-input"
+      type="text"
+      pInputText
+      placeholder="recherche"
+      [(ngModel)]="searchArticleName"
+    />
+  </div>
 
-<div class="col-md-6">
-  <span class="p-float-label">
-    <input id="float-input" type="text" pInputText [(ngModel)]="searchArticleName"/>
-  </span>
+  <div class="col-md-3">
+    <input
+      id="float-input"
+      type="text"
+      pInputText
+      placeholder="nombre limit"
+      [(ngModel)]="num_limit"
+    />
+  </div>
 </div>
-<div class="col-md-4">
-<select [(ngModel)]="selectedValue" class="custom-select my-select">
-  <!-- <option selected="selected"
-    value="{{ properties[0] }}"
-  >{{ properties[0] }} -->
-  <option
-    *ngFor="let property of properties"
-    value="{{ property }}"
-  >
-    {{ property}}
-  </option>
-</select>
-</div>
-
 <app-article-preview
-  *ngFor="let article of results | articleSearch:selectedValue:searchArticleName"
-  [article]="article">
+  *ngFor="
+    let article of results | articleSearch: selectedValue:searchArticleName
+  "
+  [article]="article"
+>
 </app-article-preview>
 
-<div class="app-article-preview"
-  [hidden]="!loading">
-  Loading articles...
-</div>
+<div class="app-article-preview" [hidden]="!loading">Loading articles...</div>
 
-<div class="app-article-preview"
-  [hidden]="loading || results.length">
+<div class="app-article-preview" [hidden]="loading || results.length">
   No articles are here... yet.
 </div>
 
 <nav [hidden]="loading || totalPages.length <= 1">
   <ul class="pagination">
-
-    <li class="page-item"
-      [ngClass]="{'active': pageNumber === currentPage}"
+    <li
+      class="page-item"
+      [ngClass]="{ active: pageNumber === currentPage }"
       *ngFor="let pageNumber of totalPages"
-      (click)="setPageTo(pageNumber)">
-
-      <a class="page-link" >{{ pageNumber }}</a>
-
+      (click)="setPageTo(pageNumber)"
+    >
+      <a class="page-link">{{ pageNumber }}</a>
     </li>
-
   </ul>
 </nav>
