@@ -61,4 +61,7 @@ export class HomeComponent implements OnInit {
     // Otherwise, set the list object
     this.listConfig = { type: type, filters: filters };
   }
+  seeStat(){
+    this.router.navigateByUrl('/statistic');
+  }
 }

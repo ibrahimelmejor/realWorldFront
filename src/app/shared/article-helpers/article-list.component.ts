@@ -6,6 +6,7 @@ import { Article, ArticleListConfig, ArticlesService } from '../../core';
   styleUrls: ['article-list.component.css'],
   templateUrl: './article-list.component.html'
 })
+
 export class ArticleListComponent {
   constructor (
     private articlesService: ArticlesService

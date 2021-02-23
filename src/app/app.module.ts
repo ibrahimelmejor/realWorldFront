@@ -16,9 +16,11 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+import { StatisticComponent } from './statistic/statistic.component';
+import { ChartsModule } from 'ng2-charts';
+import { MyBarChartComponent } from './statistic/my-bar-chart/my-bar-chart.component';
 @NgModule({
-  declarations: [AppComponent, FooterComponent, HeaderComponent],
+  declarations: [AppComponent, FooterComponent, HeaderComponent, StatisticComponent, MyBarChartComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -30,8 +32,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatInputModule,
     MatAutocompleteModule,
     RatingModule,
-    NgbModule
-
+    NgbModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

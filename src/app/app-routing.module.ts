@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { MyBarChartComponent } from './statistic/my-bar-chart/my-bar-chart.component';
+import { StatisticComponent } from './statistic/statistic.component';
 
 const routes: Routes = [
   {
@@ -17,7 +19,20 @@ const routes: Routes = [
   {
     path: 'article',
     loadChildren: './article/article.module#ArticleModule'
+  },
+  {
+    path: 'statistic',
+    component: StatisticComponent
+  },
+  {
+    path: 'statistic/bar-chart',
+    component: MyBarChartComponent
+  },
+  {
+    path: 'statistic/pie-chart',
+    component: MyBarChartComponent
   }
+
 ];
 
 @NgModule({
@@ -29,4 +44,4 @@ const routes: Routes = [
   })],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
