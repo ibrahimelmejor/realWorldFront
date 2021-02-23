@@ -21,6 +21,12 @@ export class ArticleListComponent {
     }
   }
 
+  selectedValue = 'title';
+  properties = ['title', 'slug',
+  'description',
+  'body'];
+  num_limit= 0;
+  searchArticleName = '';
   query: ArticleListConfig;
   results: Article[];
   loading = false;

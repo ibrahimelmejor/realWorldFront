@@ -1,5 +1,25 @@
+
+<div class="col-md-6">
+  <span class="p-float-label">
+    <input id="float-input" type="text" pInputText [(ngModel)]="searchArticleName"/>
+  </span>
+</div>
+<div class="col-md-4">
+<select [(ngModel)]="selectedValue" class="custom-select my-select">
+  <!-- <option selected="selected"
+    value="{{ properties[0] }}"
+  >{{ properties[0] }} -->
+  <option
+    *ngFor="let property of properties"
+    value="{{ property }}"
+  >
+    {{ property}}
+  </option>
+</select>
+</div>
+
 <app-article-preview
-  *ngFor="let article of results"
+  *ngFor="let article of results | articleSearch:selectedValue:searchArticleName"
   [article]="article">
 </app-article-preview>
 
