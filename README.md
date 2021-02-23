@@ -34,5 +34,9 @@ articleSearch:'title':searchArticleName"
 
 ### adding of limit field for effiscient search
 
+# ADDING OF THE STATISTIQUE COMPOSANT :
+
+
+
 
 
