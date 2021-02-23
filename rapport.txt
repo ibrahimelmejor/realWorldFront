@@ -1,0 +1,31 @@
+pokeSearch: 'name':searchPokeName
+
+
+
+<div class="col-md-4">
+            <span class="p-float-label">
+              <input id="float-input" type="text" pInputText [(ngModel)]="searchPokeName"/>
+              <label for="float-input">Username</label>
+            </span>
+          </div>
+
+
+
+création du pipe dans le même module que le composant qui l'utilisera
+
+ici le module "shared" avec la commande 
+ng g pipe shared/article-helpers/articleSearch étant à la racine du projet
+
+ensuite ajout d'un champ de text pour la recherche
+
+creation du variable pour le binding double directionnel
+
+utilisation du pipe dans le composant article
+articleSearch: c'est le nom du pipe 
+title c'est la proprete de l'article sur laquel se fera la recherche
+searchArticleName: c'est le nom tapé dans le champ de recherche 
+articleSearch:'title':searchArticleName"
+
+
+
+ajout de champ de limit

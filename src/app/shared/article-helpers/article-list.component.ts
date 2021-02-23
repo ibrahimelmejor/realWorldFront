@@ -25,7 +25,8 @@ export class ArticleListComponent {
   properties = ['title', 'slug',
   'description',
   'body'];
-  num_limit= '';
+
+
   searchArticleName = '';
   query: ArticleListConfig;
   results: Article[];

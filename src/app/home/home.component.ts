@@ -13,13 +13,14 @@ export class HomeComponent implements OnInit {
     private router: Router,
     private tagsService: TagsService,
     private userService: UserService
-  ) {}
+  ) { }
 
   isAuthenticated: boolean;
   listConfig: ArticleListConfig = {
     type: 'all',
     filters: {}
   };
+  num_limit = 500;
   tags: Array<string> = [];
   tagsLoaded = false;
 
@@ -38,18 +39,16 @@ export class HomeComponent implements OnInit {
     );
 
     this.tagsService.getAll()
-    .subscribe(tags => {
-      for(var tag of tags)
-        {
+      .subscribe(tags => {
+        for (var tag of tags) {
           tag = tag.replace(/[\u200c-\u200D\uFEFF]/g, '');
-          if(tag !== "")
-          {
+          if (tag !== "") {
             console.log(tag);
-            this.tags.push(tag); 
+            this.tags.push(tag);
           }
         }
-      this.tagsLoaded = true;
-    });
+        this.tagsLoaded = true;
+      });
   }
 
   setListTo(type: string = '', filters: Object = {}) {
@@ -60,6 +59,6 @@ export class HomeComponent implements OnInit {
     }
 
     // Otherwise, set the list object
-    this.listConfig = {type: type, filters: filters};
+    this.listConfig = { type: type, filters: filters };
   }
 }

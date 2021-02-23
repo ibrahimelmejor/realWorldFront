@@ -1,32 +1,24 @@
 <br />
-<div class="row">
-  <div class="col-md-3">
+<div class="form-group row">
+  <div class="col-sm">
     <select [(ngModel)]="selectedValue" class="custom-select my-select">
       <option *ngFor="let property of properties" value="{{ property }}">
         {{ property }}
       </option>
     </select>
   </div>
-  <div class="col-md-5">
+  <div class="col-sm">
     <input
       id="float-input"
       type="text"
       pInputText
-      placeholder="recherche"
+      class="form-control" id="limit" placeholder="search by title, slug , description, body ..."
       [(ngModel)]="searchArticleName"
     />
   </div>
 
-  <div class="col-md-3">
-    <input
-      id="float-input"
-      type="text"
-      pInputText
-      placeholder="nombre limit"
-      [(ngModel)]="num_limit"
-    />
-  </div>
 </div>
+<br>
 <app-article-preview
   *ngFor="
     let article of results | articleSearch: selectedValue:searchArticleName
