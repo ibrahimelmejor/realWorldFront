@@ -17,7 +17,8 @@ pipe creation in the same module which will use it.
 
 here shared module "shared" with
 
-### $ ng g pipe shared/article-helpers/articleSearch étant à la racine du projet
+### $ ng g pipe shared/article-helpers/articleSearch 
+being at the root of the project
 
 - after add input for searching
 
