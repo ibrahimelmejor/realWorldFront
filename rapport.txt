@@ -89,3 +89,6 @@ import {DataViewModule} from 'primeng/dataview';
 import {RatingModule} from 'primeng/rating';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
+
+
+import { ArticleSearchPipe } from './article-helpers/article-search.pipe';
