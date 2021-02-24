@@ -52,6 +52,25 @@ export class ArticleListComponent implements OnInit {
   ngOnInit(): void {
     // this.productService.getProducts().then(data => this.products = data);
 
+    this.sortOptions = [
+      {
+        label: 'Title',
+        value: 'tittle'
+      },
+      {
+        label: 'Slug',
+        value: 'slug'
+      },
+      {
+        label: 'Description',
+        value: 'description'
+      },
+      {
+        label: 'Body',
+        value: 'body'
+      },
+    ];
+
     this.runQuery2();
 
     this.sortOptions = [
@@ -117,5 +136,15 @@ export class ArticleListComponent implements OnInit {
       // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
       this.totalPages = Array.from(new Array(Math.ceil(data.articlesCount / this.limit)), (val, index) => index + 1);
     });
+  }
+
+  onToggleFavorite(favorited: boolean) {
+    this.products['favorited'] = favorited;
+
+    if (favorited) {
+      this.products['favoritesCount']++;
+    } else {
+      this.products['favoritesCount']--;
+    }
   }
 }
