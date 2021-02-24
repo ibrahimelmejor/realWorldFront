@@ -1,31 +1,91 @@
-pokeSearch: 'name':searchPokeName
+ajout de css dans home.component.css
+.page{
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+
+dans angular.json
+"node_modules/primeicons/primeicons.css",
+"node_modules/primeng/resources/themes/bootstrap4-light-blue/theme.css",
+"node_modules/primeng/resources/primeng.min.css"
+
+
+importation des modules dans app.amodule.ts
+
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
+import {PanelModule} from 'primeng/panel';
+import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {RippleModule} from 'primeng/ripple';
+
+
+pour le composant article-list
+
+article-list.component.ts
+
+this.sortOptions = [
+      {
+        label: 'Title',
+        value: 'tittle'
+      },
+      {
+        label: 'Slug',
+        value: 'slug'
+      },
+      {
+        label: 'Description',
+        value: 'description'
+      },
+      {
+        label: 'Body',
+        value: 'body'
+      },
+    ];
 
 
 
-<div class="col-md-4">
-            <span class="p-float-label">
-              <input id="float-input" type="text" pInputText [(ngModel)]="searchPokeName"/>
-              <label for="float-input">Username</label>
-            </span>
+onToggleFavorite(favorited: boolean) {
+    this.products['favorited'] = favorited;
+
+    if (favorited) {
+      this.products['favoritesCount']++;
+    } else {
+      this.products['favoritesCount']--;
+    }
+  }
+
+et dans le fichier html de ce composant 
+<div style="display: inline-block">
+            <app-favorite-button
+              [article]="product"
+              (toggle)="onToggleFavorite($event)"
+              class="pull-xs-right">
+              {{product.favoritesCount}}
+            </app-favorite-button>
+          </div>
+          
+
+
+et pour le comptage des favories
+<span>Read more...</span>
+          <br>
+          <div style="display: inline-block">
+            <app-favorite-button
+              [article]="product"
+              (toggle)="onToggleFavorite($event)"
+              class="pull-xs-right">
+              {{product.favoritesCount}}
+            </app-favorite-button>
           </div>
 
 
+shared.module.ts
 
-création du pipe dans le même module que le composant qui l'utilisera
-
-ici le module "shared" avec la commande 
-ng g pipe shared/article-helpers/articleSearch étant à la racine du projet
-
-ensuite ajout d'un champ de text pour la recherche
-
-creation du variable pour le binding double directionnel
-
-utilisation du pipe dans le composant article
-articleSearch: c'est le nom du pipe 
-title c'est la proprete de l'article sur laquel se fera la recherche
-searchArticleName: c'est le nom tapé dans le champ de recherche 
-articleSearch:'title':searchArticleName"
-
-
-
-ajout de champ de limit
+import {DropdownModule} from 'primeng/dropdown';
+import {DataViewModule} from 'primeng/dataview';
+import {RatingModule} from 'primeng/rating';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
