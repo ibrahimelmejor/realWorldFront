@@ -19,6 +19,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { StatisticComponent } from './statistic/statistic.component';
 import { ChartsModule } from 'ng2-charts';
 import { MyBarChartComponent } from './statistic/my-bar-chart/my-bar-chart.component';
+
+
+import {DataViewModule} from 'primeng/dataview';
+import {ButtonModule} from 'primeng/button';
+import {PanelModule} from 'primeng/panel';
+import {DropdownModule} from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {RippleModule} from 'primeng/ripple';
+
+
 @NgModule({
   declarations: [AppComponent, FooterComponent, HeaderComponent, StatisticComponent, MyBarChartComponent],
   imports: [
@@ -34,6 +45,13 @@ import { MyBarChartComponent } from './statistic/my-bar-chart/my-bar-chart.compo
     RatingModule,
     NgbModule,
     ChartsModule,
+    DataViewModule,
+    PanelModule,
+    DialogModule,
+    DropdownModule,
+    InputTextModule,
+    ButtonModule,
+    RippleModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

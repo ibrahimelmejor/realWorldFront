@@ -9,6 +9,11 @@ import { FavoriteButtonComponent, FollowButtonComponent } from './buttons';
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
 import { ArticleSearchPipe } from './article-helpers/article-search.pipe';
+import {DropdownModule} from 'primeng/dropdown';
+import {DataViewModule} from 'primeng/dataview';
+import {RatingModule} from 'primeng/rating';
+import {ButtonModule} from 'primeng/button';
+import {InputTextModule} from 'primeng/inputtext';
 
 @NgModule({
   imports: [
@@ -16,7 +21,12 @@ import { ArticleSearchPipe } from './article-helpers/article-search.pipe';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    RouterModule
+    RouterModule,
+    DropdownModule,
+    DataViewModule,
+    RatingModule,
+    ButtonModule,
+    InputTextModule
   ],
   declarations: [
     ArticleListComponent,
